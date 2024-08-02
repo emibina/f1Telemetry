@@ -13,9 +13,6 @@ def get_data(year_name, circuit_name, session_name, driver_name):
     driver_info = session.get_driver(driver_name)
     ergast = Ergast()
     circuit = ergast.get_circuits(season=year_name, result_type='raw')[session.event.RoundNumber - 1]['circuitName']
-
-    #f1_for_aim
-    #racer_name, veichle_name, track_name, championship_name
     with open(f'./Telemetry/{driver_name}_{session_name}_{year_name}_{circuit_name}_car_data.csv','w+') as fd:
         fd.write('F1 for AiM\n')
         fd.write(f"Racer,{driver_info['FullName']}\n")
