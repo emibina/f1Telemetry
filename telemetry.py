@@ -8,7 +8,6 @@ def get_data(year_name, circuit_name, session_name, driver_name):
     session = fastf1.get_session(int(year_name), circuit_name, session_name)
     session.load()
     driver = session.laps.pick_driver(driver_name)
-    full_data = driver.get_telemetry(frequency = 'original')
     car_data = driver.get_car_data()
     pos_data = driver.get_pos_data()
     Path("./Telemetry").mkdir(parents=True, exist_ok=True)
@@ -40,3 +39,19 @@ def get_drivers(year_name, circuit_name, session_name):
     for driver in drivers_num:
         drivers_name.append(session.laps.pick_driver(driver)['Driver'].iloc[0])
     return drivers_name, drivers_num
+
+
+# ergast = Ergast()
+# season = ergast.get_race_schedule(2024)
+# for race in season['raceName']:
+#     if race == 'Belgian Grand Prix':
+#         break
+#     else:
+#         driver_name, driver_num = get_drivers(2024, race, 'R')
+#         for driver in driver_name:
+#             get_data('2024', race, 'R', driver)
+
+ergast = Ergast()
+driver_name, driver_num = get_drivers(2024, 'Belgian Grand Prix', 'R')
+for driver in driver_name:
+    get_data('2024', 'Belgian Grand Prix', 'R', driver)
