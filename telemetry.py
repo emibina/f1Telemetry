@@ -8,9 +8,9 @@ def get_data(year_name, circuit_name, session_name, driver_name):
     session = fastf1.get_session(int(year_name), circuit_name, session_name)
     session.load()
     driver = session.laps.pick_driver(driver_name)
-    full_data = driver.get_telemetry()
+    full_data = driver.get_telemetry(frequency = 'original')
     Path("./Telemetry").mkdir(parents=True, exist_ok=True)
-    full_data.to_csv(f'./Telemetry/{driver_name}_{session_name}_{year_name}_{circuit_name}_car_data.csv', index=False, float_format='%.8f')
+    full_data.to_csv(f'./Telemetry/{driver_name}_{session_name}_{year_name}_{circuit_name}_car_data.f1.csv', index=False, float_format='%.8f')
 
 def get_season(year_name):
     ergast = Ergast()
