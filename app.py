@@ -34,18 +34,20 @@ label_pilota = ttk.Label(frame_pilota, text="Pilota")
 label_pilota.pack(side="left")
 
 YEARS = [
+"2018",
 "2019",
 "2020",
 "2021",
 "2022",
 "2023",
+"2024"
 ]
 
 SESSIONS = ['Q', 'R']
 
-CIRCUITS = telemetry.get_season(2019)
+CIRCUITS = telemetry.get_season(YEARS[0])
 
-DRIVERS = telemetry.get_drivers(2019, CIRCUITS[0], SESSIONS[0])[0]
+DRIVERS = telemetry.get_drivers(YEARS[0], CIRCUITS[0], SESSIONS[0])[0]
 
 def update_circuit(race):
     clicked_circuit.set(race)
