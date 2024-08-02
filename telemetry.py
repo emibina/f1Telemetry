@@ -10,7 +10,19 @@ def get_data(year_name, circuit_name, session_name, driver_name):
     driver = session.laps.pick_driver(driver_name)
     full_data = driver.get_telemetry(frequency = 'original')
     Path("./Telemetry").mkdir(parents=True, exist_ok=True)
-    full_data.to_csv(f'./Telemetry/{driver_name}_{session_name}_{year_name}_{circuit_name}_car_data.f1.csv', index=False, float_format='%.8f')
+    driver_info = session.get_driver(driver_name)
+    ergast = Ergast()
+    circuit = ergast.get_circuits(season=year_name, result_type='raw')[session.event.RoundNumber - 1]['circuitName']
+
+    #f1_for_aim
+    #racer_name, veichle_name, track_name, championship_name
+    with open(f'./Telemetry/{driver_name}_{session_name}_{year_name}_{circuit_name}_car_data.csv','w+') as fd:
+        fd.write('f1_for_aim\n')
+        fd.write(f"Racer,{driver_info['FullName']}\n")
+        fd.write(f"Veichle,{driver_info['TeamName']}\n")
+        fd.write(f"Track,{circuit}\n")
+        fd.write(f"Championship,Season {year_name}\n")
+    full_data.to_csv(f'./Telemetry/{driver_name}_{session_name}_{year_name}_{circuit_name}_car_data.csv', index=False, float_format='%.8f', mode='a')
 
 def get_season(year_name):
     ergast = Ergast()

@@ -1,3 +1,8 @@
+f1_for_aim
+Racer,Lewis Hamilton
+Veichle,Mercedes
+Track,Albert Park Grand Prix Circuit
+Championship,Season 2019
 Date,SessionTime,DriverAhead,DistanceToDriverAhead,Time,RPM,Speed,nGear,Throttle,Brake,DRS,Source,Distance,RelativeDistance,Status,X,Y,Z
 2019-03-16 06:05:42.714,0 days 00:20:42.565000,,137.45500000,0 days 00:00:00,5280,59,2,39,False,8,interpolation,0.00025238,0.00000000,OnTrack,-10221,-6817,0
 2019-03-16 06:05:42.726,0 days 00:20:42.577000,,137.45500000,0 days 00:00:00.012000,5175,59,2,36,False,8,car,0.19666667,0.00000209,OnTrack,-10222,-6818,0
