@@ -17,7 +17,7 @@ def get_data(year_name, circuit_name, session_name, driver_name):
     #f1_for_aim
     #racer_name, veichle_name, track_name, championship_name
     with open(f'./Telemetry/{driver_name}_{session_name}_{year_name}_{circuit_name}_car_data.csv','w+') as fd:
-        fd.write('f1_for_aim\n')
+        fd.write('F1 for AiM\n')
         fd.write(f"Racer,{driver_info['FullName']}\n")
         fd.write(f"Veichle,{driver_info['TeamName']}\n")
         fd.write(f"Track,{circuit}\n")
